@@ -97,7 +97,7 @@ function printArray(path, options, print) {
         [
           openBracket,
           indent([
-            softline,
+            options.bracketSpacing ? line : softline,
             shouldUseConciseFormatting
               ? printArrayItemsConcisely(path, options, print, trailingComma)
               : [
@@ -106,7 +106,7 @@ function printArray(path, options, print) {
                 ],
             printDanglingComments(path, options, /* sameIndent */ true),
           ]),
-          softline,
+          options.bracketSpacing ? line : softline,
           closeBracket,
         ],
         { shouldBreak, id: groupId }
